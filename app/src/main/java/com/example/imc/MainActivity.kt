@@ -11,16 +11,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_menu)
-        val btnImc = findViewById<Button>(R.id.btnImcCalculator)
-        btnImc.setOnClickListener { navigateToImcCalculator() }
+        setContentView(R.layout.activity_imc_calculator)
+        //val btnImc = findViewById<Button>(R.id.btnImcCalculator)
+       // btnImc.setOnClickListener { navigateToImcCalculator() }
 
     }
 
-    private fun navigateToImcCalculator() {
+
+    /*
+       private fun navigateToImcCalculator() {
         val intent = Intent(this, imcCalculatorActivity::class.java)
         startActivity(intent)
     }
+     */
+
 
 }
 

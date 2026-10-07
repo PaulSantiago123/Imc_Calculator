@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="B &amp; O BMI CALCULATOR"
         android:textAlignment="center"
-        android:padding="16dp"
+        android:padding="18dp"
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardMale"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="160dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="10dp"
@@ -40,7 +40,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardFemale"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="160dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="10dp"
@@ -67,21 +67,38 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="20dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="HEIGHT"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:textAlignment="center"
-
-                >
-
+                android:textColor="@color/white">
             </TextView>
 
+            <TextView
+                android:id="@+id/tvHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:textStyle="bold"
+
+                android:text="100 cm"
+                android:textColor="@color/white">
+            </TextView>
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rangeSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="1"
+                android:valueFrom="100"
+                android:valueTo="220">
+            </com.google.android.material.slider.RangeSlider>
 
 
         </LinearLayout>
