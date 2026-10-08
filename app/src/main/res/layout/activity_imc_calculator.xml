@@ -134,12 +134,11 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tvHeight"
+                android:id="@+id/textHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="40sp"
                 android:textStyle="bold"
-
                 android:text="100 cm"
                 android:textColor="@color/white">
             </TextView>
@@ -192,33 +191,33 @@
                 android:text="20"
                 android:textSize="38dp"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                >
+                android:textStyle="bold">
 
             </TextView>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/weightMinusBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:backgroundTint="@color/cardview_dark_background"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/minus"
-                    android:layout_marginEnd="8dp">
+                    app:backgroundTint="@color/cardview_dark_background">
+
                 </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/weightPlusBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:backgroundTint="@color/cardview_dark_background"
                     android:src="@drawable/plus"
-                    android:layout_marginStart="8dp">
+                    app:backgroundTint="@color/cardview_dark_background">
+
                 </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -263,6 +262,33 @@
                 android:textStyle="bold"
                 android:textColor="@color/white">
             </TextView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/ageMinusBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/minus"
+                    app:backgroundTint="@color/cardview_dark_background">
+
+                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/agePlusBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/plus"
+                    app:backgroundTint="@color/cardview_dark_background">
+
+                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </LinearLayout>
 
