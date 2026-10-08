@@ -17,6 +17,8 @@
         android:textAlignment="center"
         android:padding="18dp"
         android:textColor="@color/white"
+        android:textStyle="italic"
+        android:textSize="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -195,6 +197,32 @@
 
             </TextView>
 
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/weightMinusBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/cardview_dark_background"
+                    android:src="@drawable/minus"
+                    android:layout_marginEnd="8dp">
+                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/weightPlusBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/cardview_dark_background"
+                    android:src="@drawable/plus"
+                    android:layout_marginStart="8dp">
+                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -243,7 +271,7 @@
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="CALCULATE"
         app:layout_constraintBottom_toBottomOf="parent"
         >
