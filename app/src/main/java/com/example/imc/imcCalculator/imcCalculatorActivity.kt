@@ -5,11 +5,14 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.compose.ui.text.font.FontWeight
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.imc.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
+import java.text.DecimalFormat
 
 class imcCalculatorActivity : AppCompatActivity() {
 
@@ -17,9 +20,17 @@ class imcCalculatorActivity : AppCompatActivity() {
     private lateinit var cardFemale: CardView
     private lateinit var textHeight: TextView
     private lateinit var rangeSlider: RangeSlider
+    private lateinit var weightMinusButton: FloatingActionButton
+    private lateinit var weightPlusButton: FloatingActionButton
+    private lateinit var numberWeight: TextView
+    private lateinit var ageMinusButton: FloatingActionButton
+    private lateinit var agePlusButton: FloatingActionButton
+    private lateinit var numberAge: TextView
 
     private var maleSelected: Boolean = true
-    private var femaleSelected: Boolean = true
+    private var femaleSelected: Boolean = false
+    private var currentWeight: Int = 0
+    private var currentAge: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +44,7 @@ class imcCalculatorActivity : AppCompatActivity() {
         }
         initComponents()
         initListeners()
+        initUI()
 
     }
 
@@ -41,6 +53,13 @@ class imcCalculatorActivity : AppCompatActivity() {
         cardFemale = findViewById<CardView>(R.id.cardFemale)
         textHeight = findViewById<TextView>(R.id.textHeight)
         rangeSlider = findViewById<RangeSlider>(R.id.rangeSlider)
+        weightPlusButton = findViewById<FloatingActionButton>(R.id.weightPlusBtn)
+        weightMinusButton = findViewById<FloatingActionButton>(R.id.weightMinusBtn)
+        numberWeight = findViewById<TextView>(R.id.numberWeight)
+        ageMinusButton = findViewById<FloatingActionButton>(R.id.ageMinusBtn)
+        agePlusButton = findViewById<FloatingActionButton>(R.id.agePlusBtn)
+        numberAge = findViewById<TextView>(R.id.numberAge)
+
     }
 
     private fun initListeners() {
@@ -56,8 +75,39 @@ class imcCalculatorActivity : AppCompatActivity() {
         }
 
         rangeSlider.addOnChangeListener { _, value, _ ->
-            textHeight.text = value.toString()
+            val decimal = DecimalFormat("#.##")
+            val result = decimal.format(value)
+            textHeight.text = "$result cm"
         }
+
+        weightPlusButton.setOnClickListener {
+            currentWeight++
+            setWeight()
+        }
+
+        weightMinusButton.setOnClickListener {
+            currentWeight--
+            setWeight()
+        }
+
+        ageMinusButton.setOnClickListener {
+            currentAge--
+            setAge()
+
+        }
+
+        agePlusButton.setOnClickListener {
+            currentAge++
+            setAge()
+        }
+    }
+
+    private fun setAge() {
+        numberAge.text = currentAge.toString()
+    }
+
+    private fun setWeight() {
+        numberWeight.text = currentWeight.toString()
     }
 
     private fun setGenderColor() {
@@ -72,6 +122,12 @@ class imcCalculatorActivity : AppCompatActivity() {
             R.color.background_component
         }
         return ContextCompat.getColor(this, colorRes)
+    }
+
+    private fun initUI() {
+        setGenderColor()
+        setWeight()
+        setAge()
     }
 
 }
