@@ -1,6 +1,8 @@
 package com.example.imc.imcCalculator
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,11 +28,14 @@ class imcCalculatorActivity : AppCompatActivity() {
     private lateinit var ageMinusButton: FloatingActionButton
     private lateinit var agePlusButton: FloatingActionButton
     private lateinit var numberAge: TextView
+    private lateinit var btnCalculate: Button
 
     private var maleSelected: Boolean = true
     private var femaleSelected: Boolean = false
     private var currentWeight: Int = 0
     private var currentAge: Int = 0
+    private var currentHeight:Int = 120
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +64,7 @@ class imcCalculatorActivity : AppCompatActivity() {
         ageMinusButton = findViewById<FloatingActionButton>(R.id.ageMinusBtn)
         agePlusButton = findViewById<FloatingActionButton>(R.id.agePlusBtn)
         numberAge = findViewById<TextView>(R.id.numberAge)
+        btnCalculate = findViewById<Button>(R.id.btnCalculate)
 
     }
 
@@ -76,8 +82,8 @@ class imcCalculatorActivity : AppCompatActivity() {
 
         rangeSlider.addOnChangeListener { _, value, _ ->
             val decimal = DecimalFormat("#.##")
-            val result = decimal.format(value)
-            textHeight.text = "$result cm"
+            currentHeight = decimal.format(value).toInt()
+            textHeight.text = "$currentHeight cm"
         }
 
         weightPlusButton.setOnClickListener {
@@ -100,6 +106,24 @@ class imcCalculatorActivity : AppCompatActivity() {
             currentAge++
             setAge()
         }
+
+        btnCalculate.setOnClickListener {
+            val result = calculateIMC()
+            navigateToResult(result)
+        }
+    }
+
+    private fun navigateToResult(result: Double) {
+        val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra("IMC_RESULT", result)
+        startActivity(intent)
+    }
+
+    private fun calculateIMC(): Double {
+        val decimal = DecimalFormat("#.##")
+        val imc = currentWeight / (currentHeight.toDouble() /100 * currentHeight.toDouble() / 100)
+        return decimal.format(imc).toDouble()
+
     }
 
     private fun setAge() {

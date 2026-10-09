@@ -301,7 +301,6 @@
         android:text="CALCULATE"
         app:layout_constraintBottom_toBottomOf="parent"
         >
-
     </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
