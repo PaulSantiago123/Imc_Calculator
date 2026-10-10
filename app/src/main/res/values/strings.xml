@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">Imc</string>
     <string name="male">Male</string>
+    <string name="error">Error</string>
+    
+    <string name="state_underweight">Underweight</string>
+    <string name="desc_underweight">You\'re underweight for your height and weight</string>
+
+    <string name="state_normal_weight">Normal</string>
+    <string name="desc_normal_weight">You\'re normal for your height and weight</string>
+
+    <string name="state_overweight">Overweight</string>
+    <string name="desc_overweight">You\'re overweight for your height and weight</string>
+
+    <string name="state_obesity">Obesity</string>
+    <string name="desc_obesity">You\'re obese for your height and weight</string>
+
 </resources>

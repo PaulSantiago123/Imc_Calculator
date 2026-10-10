@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_component">#1D1E33</color>
     <color name="background_component_selected">#3A3C5E</color>
+    <color name="underweight">#2196F3</color>
+    <color name="normal_weight">#4CAF50</color>
+    <color name="overweight">#FF9800</color>
+    <color name="obese">#FF0058</color>
+
+
+
 </resources>
